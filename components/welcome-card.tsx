@@ -2,69 +2,46 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Sparkles, TrendingUp, Users } from "lucide-react"
-import Image from "next/image"
+import { Sparkles, TrendingUp, Users, Calendar } from 'lucide-react'
 
 export function WelcomeCard() {
-  const currentTime = new Date().toLocaleString("zh-CN", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    weekday: "long",
-  })
-
   return (
-    <Card className="bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 text-white overflow-hidden relative border-0 shadow-xl">
+    <Card className="bg-gradient-to-r from-orange-500 to-yellow-500 border-0 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
       <CardContent className="p-8">
         <div className="flex items-center justify-between">
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 relative">
-                <Image src="/logo.png" alt="YanYu Cloud Logo" width={48} height={48} className="rounded-lg" priority />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold">欢迎回到 YanYu Cloud Sharing E-center</h1>
-                <p className="text-blue-100">言语云享e中心 · 让智能运营更简单</p>
-              </div>
+              <Sparkles className="h-8 w-8" />
+              <h1 className="text-3xl font-bold">欢迎回来，张三！</h1>
             </div>
-
-            <div className="space-y-2">
-              <p className="text-lg">
-                <span className="font-semibold">管理员</span>，您好！今天是 {currentTime}
-              </p>
-              <p className="text-blue-100">一言一语一成长；一点一滴一翱翔</p>
-            </div>
-
-            <div className="flex items-center space-x-6">
+            <p className="text-orange-100 text-lg">
+              今天是美好的一天，让我们一起创造更多价值
+            </p>
+            <div className="flex items-center space-x-6 text-orange-100">
               <div className="flex items-center space-x-2">
-                <Users className="h-5 w-5" />
-                <span className="text-sm">在线用户: 156</span>
+                <Calendar className="h-4 w-4" />
+                <span>2024年1月15日</span>
               </div>
               <div className="flex items-center space-x-2">
-                <TrendingUp className="h-5 w-5" />
-                <span className="text-sm">今日活跃: +23%</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Sparkles className="h-5 w-5" />
-                <span className="text-sm">AI助手就绪</span>
+                <Users className="h-4 w-4" />
+                <span>团队成员：24人在线</span>
               </div>
             </div>
-
-            <Button
-              variant="secondary"
-              className="bg-white text-blue-600 hover:bg-blue-50 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              开始今日工作
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
           </div>
-
-          {/* 装饰性元素 */}
-          <div className="hidden lg:block relative">
-            <div className="w-32 h-32 bg-white/10 rounded-full absolute -top-8 -right-8"></div>
-            <div className="w-20 h-20 bg-white/20 rounded-full absolute top-8 right-8"></div>
+          <div className="text-right space-y-4">
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+              <div className="flex items-center space-x-2 text-white">
+                <TrendingUp className="h-5 w-5" />
+                <span className="text-2xl font-bold">+15.2%</span>
+              </div>
+              <p className="text-orange-100 text-sm">本月业绩增长</p>
+            </div>
+            <Button 
+              variant="secondary" 
+              className="bg-white text-orange-600 hover:bg-orange-50 shadow-lg"
+            >
+              查看详细报告
+            </Button>
           </div>
         </div>
       </CardContent>
